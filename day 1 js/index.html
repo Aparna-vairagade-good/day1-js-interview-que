@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+p{
+    font-size: 20px;
+    font-weight: bold;
+}
+pre{
+    font-size: 17px;
+    color: brown;
+}
+div{
+    border: 2px solid black;
+    margin: 2px;
+    border-radius: 8px;
+}
+</style>
+<body>
+ <div>  <p> 1.Difference between “ == “ and “ === “ operators.</p>
+    <p>  "==="  is strict equality- it compares two value 
+      "==" is loose equality - it compares two values as well as deta type
+      both returns the boolean value </p>
+      <pre>let a=100
+          let b='100'
+          console.log(a==b)
+          console.log(a===b)
+  
+          output:true 
+                 false
+      </pre>
+    </div>
+
+ <div>  <p> 2.What is the spread operator?</p>
+    <p> The Javascript spread operator (...)allows us to quickly copy existing array or object into another array or object </p>
+      <pre>const numberone =[1,2,3];
+         const numbertwo =[4,5,6];
+         const numbercombined=[...numberone,...numbertwo]
+         console.log(numbercombined)
+ 
+         output:[1,2,3,4,5,6]
+     </pre>
+    </div>
+
+  <div> <p> 3.What are the differences between var, let and const?</p>
+    <pre> var-> is the global scoped or function scoped
+     It can be redeclared and updated
+     It can be declared without initialization
+ 
+     let -> is block scoped
+     It cannot redeclared but it can be updated
+     It can be declared without initialization
+ 
+     const -> is the block scoped
+     It cannot redeclared and cannot updated
+     It cannot be declared without initialization</pre>
+    </div>
+
+  <div> <p> 4.What is execution context</p>
+    <p>when Javascript engin executes a script ,it creates execution context It has two phases 
+        creation phase (mamory allocation phase): every variable and function declaration are stored in memory and values
+        are udefined
+        execution phase (code execution phase): This is stage where the actual code execution begins .</p>
+<pre>
+    var c=10
+    function add(){
+        var d=10
+        var e=30
+        var f=d+e
+        return f
+    }
+    var addresult= add()
+    console.log(addresult)
+    console.log(c)
+
+    output:40
+           10
+</pre>
+</div>
+
+<div><p>5.What is meant by first class functions</p>
+    <p>First class function when functions are treated like any other variable</p>
+    <pre>function sayhallo(){
+        return "hello"
+    }
+    function greeting(hellomsg, name){
+    console.log(hellomsg()+name)
+    }
+    greeting(sayhallo, " javascript!")
+    
+    output: hello javascript!
+    </pre>
+</div>
+
+<div><p>6.What are closures? Give an example of closure</p>
+    <p>closure is the combination of function together with reference to surrounding state (lexical environment )
+        closure gives access to an outer function scope from an inner function</p>
+    <pre>function makeadder(x){
+        return function(y){
+            return x+y
+        }
+    }
+    const added=makeadder(5)
+    console.log(added(2))
+    
+    output:7
+    </pre>
+</div>
+
+<div><p>7.Explain call(), apply() and, bind() methods. Give an example of call(), apply(), bind()
+    call: method takes argument seperately</p> 
+<pre>const person={
+    fullname:function(){
+        return this.firstname +" "+ this.lastname
+    }
+}
+const person1={
+    firstname:"marry",
+    lastname:"doe"
+}
+console.log(person.fullname.call(person1))
+
+output:marry doe
+</pre>
+
+apply: method takes argument as an array
+<pre>const myself={
+    fullname:function(){
+        return this.firstname +" "+ this.lastname
+    }
+}
+const myself1={
+    firstname:"shivani",
+    lastname:"bhagyawant"
+}
+console.log(person.fullname.apply(person1))
+
+output:marry doe
+</pre>
+</div>
+    <script src="./index.js"></script>
+</body>
+</html>
+
+
